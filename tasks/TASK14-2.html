@@ -1,11 +1,45 @@
-<DOCTYPE html>
-<html>
-    <head>
-        <body>
-            <script>
-                let y = Math.floor(10 * Math.random());
-                console.log(y);
-            </script>
-        </body>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Integer 0–9</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    #output {
+      font-size: 2rem;
+      color: green;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>Task 7: Random Integer Output (0–9)</h2>
+  <div id="output">Click the button to generate</div>
+  <button onclick="generate()">Generate</button>
+
+  <script>
+    function generate() {
+      const y = Math.floor(Math.random() * 10);
+      document.getElementById('output').innerText = `Random value: ${y}`;
+      console.log("Random y:", y);
+    }
+  </script>
+</body>
 </html>
