@@ -1,11 +1,45 @@
-<DOCTYPE html>
-<html>
-    <head>
-        <body>
-            <script>
-                let x = Math.random();
-                console.log(x);
-            </script>
-        </body>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Decimal Output</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #f2f2f2;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    #output {
+      font-size: 2rem;
+      color: darkblue;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h2>Task 6: Random Decimal Output (0–1)</h2>
+  <div id="output">Click the button to generate</div>
+  <button onclick="generate()">Generate</button>
+
+  <script>
+    function generate() {
+      const x = Math.random().toFixed(5);
+      document.getElementById('output').innerText = `Random value: ${x}`;
+      console.log("Random x:", x);
+    }
+  </script>
+</body>
 </html>
