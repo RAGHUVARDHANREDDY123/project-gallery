@@ -1,0 +1,97 @@
+[
+  {
+    "id": "task1",
+    "title": "Task 1",
+    "file": "tasks/TASK10.html"
+  },
+  {
+    "id": "task2",
+    "title": "Task 2",
+    "file": "tasks/TASK11-2.html"
+  },
+  {
+    "id": "task3",
+    "title": "Task 3",
+    "file": "tasks/TASK11.html"
+  },
+  {
+    "id": "task4",
+    "title": "Task 4",
+    "file": "tasks/TASK12.html"
+  },
+  {
+    "id": "task5",
+    "title": "Task 5",
+    "file": "tasks/TASK13.html"
+  },
+  {
+    "id": "task6",
+    "title": "Task 6",
+    "file": "tasks/TASK14-1.html"
+  },
+  {
+    "id": "task7",
+    "title": "Task 7",
+    "file": "tasks/TASK14-2.html"
+  },
+  {
+    "id": "task8",
+    "title": "Task 8",
+    "file": "tasks/TASK14-3.html"
+  },
+  {
+    "id": "task9",
+    "title": "Task 9",
+    "file": "tasks/TASK14-4.html"
+  },
+  {
+    "id": "task10",
+    "title": "Task 10",
+    "file": "tasks/TASK14-5.html"
+  },
+  {
+    "id": "task11",
+    "title": "Task 11",
+    "file": "tasks/TASK15-1.html"
+  },
+  {
+    "id": "task12",
+    "title": "Task 12",
+    "file": "tasks/TASK15-2.html"
+  },
+  {
+    "id": "task13",
+    "title": "Task 13",
+    "file": "tasks/TASK2-2.html"
+  },
+  {
+    "id": "task14",
+    "title": "Task 14",
+    "file": "tasks/TASK2.html"
+  },
+  {
+    "id": "task15",
+    "title": "Task 15",
+    "file": "tasks/TASK3.html"
+  },
+  {
+    "id": "task16",
+    "title": "Task 16",
+    "file": "tasks/TASK4.html"
+  },
+  {
+    "id": "task17",
+    "title": "Task 17",
+    "file": "tasks/TASK5.html"
+  },
+  {
+    "id": "task18",
+    "title": "Task 18",
+    "file": "tasks/TASK8.html"
+  },
+  {
+    "id": "task19",
+    "title": "Task 19",
+    "file": "tasks/TASK9.html"
+  }
+]
