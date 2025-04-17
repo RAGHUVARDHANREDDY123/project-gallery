@@ -1,28 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
-  let tasksData = [];
-  const taskList = document.getElementById("taskList");
-  const taskTitle = document.getElementById("taskTitle");
-  const taskDesc = document.getElementById("taskDesc");
-  const frame = document.getElementById("contentFrame");
+const taskList = document.getElementById("taskList");
+const contentFrame = document.getElementById("contentFrame");
 
-  fetch("data/tasks.json")
-    .then((res) => res.json())
-    .then((tasks) => {
-      tasksData = tasks;
-      displayTasks(tasksData);
-    });
-
-  function displayTasks(tasks) {
-    taskList.innerHTML = "";
-    tasks.forEach((task) => {
-      const btn = document.createElement("button");
-      btn.textContent = task.title;
-      btn.onclick = () => {
-        frame.src = task.file;
-        taskTitle.textContent = task.title;
-        taskDesc.textContent = task.description;
+fetch("data/tasks.json")
+  .then(response => response.json())
+  .then(tasks => {
+    tasks.forEach(task => {
+      const button = document.createElement("button");
+      button.textContent = task.name;
+      button.onclick = () => {
+        contentFrame.src = task.url;
       };
-      taskList.appendChild(btn);
+      taskList.appendChild(button);
     });
-  }
-});
+  })
+  .catch(error => {
+    taskList.innerHTML = "Error loading tasks.";
+    console.error("tasks.json not loaded", error);
+  });
