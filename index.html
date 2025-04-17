@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Raghu Project Gallery</title>
+  <title>Raghu Gallery</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Updated Header -->
   <header>
     <h1>Raghu Gallery</h1>
-    <input type="text" id="searchInput" placeholder="Search tasks..." />
   </header>
 
   <div class="container">
+    <aside id="taskList"></aside>
+
     <main>
       <div id="taskInfo">
         <h2 id="taskTitle">Select a task</h2>
@@ -22,8 +22,6 @@
       </div>
       <iframe id="contentFrame" title="Task Viewer"></iframe>
     </main>
-
-    <aside id="taskList"></aside>
   </div>
 
   <script src="script.js"></script>
