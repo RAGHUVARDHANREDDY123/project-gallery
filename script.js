@@ -1,22 +1,38 @@
-
 document.addEventListener("DOMContentLoaded", () => {
+  let tasksData = [];
+  const taskList = document.getElementById("taskList");
+  const taskTitle = document.getElementById("taskTitle");
+  const taskDesc = document.getElementById("taskDesc");
+  const frame = document.getElementById("contentFrame");
+  const searchInput = document.getElementById("searchInput");
+
   fetch("data/tasks.json")
-    .then((response) => response.json())
+    .then((res) => res.json())
     .then((tasks) => {
-      const taskList = document.getElementById("taskList");
-      const frame = document.getElementById("contentFrame");
-
-      tasks.forEach((task) => {
-        const btn = document.createElement("button");
-        btn.textContent = task.title;
-        btn.onclick = () => {
-          frame.src = task.file;
-        };
-        taskList.appendChild(btn);
-      });
-
-      if (tasks.length > 0) {
-        frame.src = tasks[0].file;
-      }
+      tasksData = tasks;
+      displayTasks(tasksData);
     });
+
+  function displayTasks(tasks) {
+    taskList.innerHTML = "";
+    tasks.forEach((task) => {
+      const btn = document.createElement("button");
+      btn.textContent = task.title;
+      btn.onclick = () => {
+        frame.src = task.file;
+        taskTitle.textContent = task.title;
+        taskDesc.textContent = task.description;
+      };
+      taskList.appendChild(btn);
+    });
+  }
+
+  searchInput.addEventListener("input", () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const filteredTasks = tasksData.filter(t =>
+      t.title.toLowerCase().includes(searchTerm)
+    );
+    displayTasks(filteredTasks);
+  });
 });
+
