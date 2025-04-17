@@ -1,22 +1,31 @@
-
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
   background-color: #333;
   color: white;
-  padding: 1rem;
-  text-align: center;
+}
+
+header input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
 }
 
 .container {
@@ -25,42 +34,67 @@ header {
   overflow: hidden;
 }
 
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+#taskInfo {
+  margin-bottom: 1rem;
+}
+
+#taskTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+#taskDesc {
+  margin: 0.3rem 0 1rem 0;
+  color: #666;
+}
+
+#contentFrame {
+  flex: 1;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+}
+
 #taskList {
   width: 250px;
-  background: #f4f4f4;
+  background-color: #eee;
   padding: 1rem;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #taskList button {
-  display: block;
   margin-bottom: 10px;
   padding: 10px;
-  width: 100%;
   border: none;
   background-color: #ddd;
   cursor: pointer;
-  text-align: left;
   border-radius: 5px;
+  text-align: left;
+  transition: background 0.2s ease;
 }
 
 #taskList button:hover {
   background-color: #bbb;
 }
 
-#contentFrame {
-  flex: 1;
-  border: none;
-  height: 100%;
-}
-
 @media (max-width: 768px) {
   .container {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   #taskList {
     width: 100%;
-    display: flex;
+    flex-direction: row;
     overflow-x: auto;
   }
   #taskList button {
