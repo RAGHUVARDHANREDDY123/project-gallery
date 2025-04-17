@@ -1,19 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Call Stack Implementation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Call Stack</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 1rem;
+    }
+    #processLine {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <h1>Call Stack Implementation</h1>
-    <input type="text" id="taskInput" placeholder="Enter Task Name">
+  <h2>Task 1: Call Stack Implementation</h2>
+  <input type="text" id="taskInput" placeholder="Enter Task Name">
+  <div>
     <button onclick="addTask()">Add Task</button>
     <button onclick="undoTask()">Undo Task</button>
+  </div>
+  <h3>Process Line:</h3>
+  <p id="processLine"></p>
 
-    <h2>Process Line:</h2>
-    <p id="processLine"></p>
+  <script>
+    let callStack = [];
 
-    <script src="app.js"></script>
+    function addTask() {
+      const taskInput = document.getElementById("taskInput");
+      const taskName = taskInput.value.trim();
+
+      if (taskName) {
+        callStack.push(taskName);
+        taskInput.value = "";
+        displayStack();
+      } else {
+        alert("Please enter a task name.");
+      }
+    }
+
+    function undoTask() {
+      if (callStack.length > 0) {
+        callStack.pop();
+        displayStack();
+      } else {
+        alert("No tasks to undo.");
+      }
+    }
+
+    function displayStack() {
+      const processLine = document.getElementById("processLine");
+      processLine.textContent = callStack.join(" → ");
+    }
+  </script>
 </body>
 </html>
