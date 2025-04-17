@@ -1,17 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade Calculator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grade Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    input, button {
+      font-size: 1.2rem;
+      padding: 10px;
+      margin: 10px;
+    }
+    #result {
+      font-size: 1.5rem;
+      color: darkgreen;
+    }
+  </style>
 </head>
 <body>
-    <h2>Grade Calculator</h2>
-    <label for="score">Enter your score:</label>
-    <input type="number" id="score" min="0" max="100">
-    <button onclick="calculateGrade()">Calculate</button>
-    <p id="result"></p>
+  <h2>Task 18: Grade Calculator</h2>
+  <label for="score">Enter your score:</label>
+  <input type="number" id="score" min="0" max="100">
+  <button onclick="calculateGrade()">Calculate</button>
+  <p id="result"></p>
 
-    <script src="index_script.js"></script>
+  <script>
+    function calculateGrade() {
+      let score = parseFloat(document.getElementById('score').value);
+      let grade = "";
+
+      if (score > 80) {
+        grade = "A";
+      } else if (score > 60 && score <= 80) {
+        grade = "B";
+      } else if (score > 40 && score <= 60) {
+        grade = "C";
+      } else if (score >= 0 && score <= 40) {
+        grade = "F";
+      } else {
+        grade = "Invalid score";
+      }
+
+      document.getElementById('result').textContent = "Your grade is: " + grade;
+    }
+  </script>
 </body>
 </html>
