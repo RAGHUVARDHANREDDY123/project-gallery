@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const taskTitle = document.getElementById("taskTitle");
   const taskDesc = document.getElementById("taskDesc");
   const frame = document.getElementById("contentFrame");
-  const searchInput = document.getElementById("searchInput");
 
   fetch("data/tasks.json")
     .then((res) => res.json())
@@ -26,13 +25,4 @@ document.addEventListener("DOMContentLoaded", () => {
       taskList.appendChild(btn);
     });
   }
-
-  searchInput.addEventListener("input", () => {
-    const searchTerm = searchInput.value.toLowerCase();
-    const filteredTasks = tasksData.filter(t =>
-      t.title.toLowerCase().includes(searchTerm)
-    );
-    displayTasks(filteredTasks);
-  });
 });
-
