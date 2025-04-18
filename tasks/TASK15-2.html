@@ -27,23 +27,33 @@
       <button type="button" class="btn btn-warning" onclick="resetForm()">Cancel</button>
       <button type="submit" class="btn btn-primary">Continue to Checkout</button>
     </form>
+
+    <div id="resultMessage" class="alert alert-success mt-4 d-none" role="alert">
+      Form submitted successfully!
+    </div>
   </div>
 
   <script>
     const form = document.getElementById('registrationForm');
+    const messageBox = document.getElementById('resultMessage');
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const username = document.getElementById('username').value;
-      const email = document.getElementById('email').value;
-      const fullname = document.getElementById('fullname').value;
+      e.preventDefault(); // prevent 405 error
 
-      alert(`Submitted!\nUsername: ${username}\nEmail: ${email}\nFull Name: ${fullname}`);
-      form.reset();
+      const username = document.getElementById('username').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const fullname = document.getElementById('fullname').value.trim();
+
+      // Display confirmation
+      messageBox.textContent = `Submitted! Username: ${username}, Email: ${email}, Full Name: ${fullname}`;
+      messageBox.classList.remove("d-none");
+
+      form.reset(); // clear the form
     });
 
     function resetForm() {
       form.reset();
+      messageBox.classList.add("d-none"); // hide message
     }
   </script>
 
