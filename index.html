@@ -1,29 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Raghu Project Gallery</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+<script>
+  fetch('data/tasks.json')
+    .then(response => response.json())
+    .then(data => {
+      const nav = document.getElementById('task-list');
+      const viewer = document.getElementById('viewer');
 
-  <header>
-    <h1>Raghu Gallery</h1>
-  </header>
-
-  <div class="container">
-    <aside id="taskList"></aside>
-
-    <main>
-      <div id="taskInfo">
-        <h2 id="taskTitle">Select a task</h2>
-        <p id="taskDesc">Task description will appear here.</p>
-      </div>
-      <iframe id="contentFrame" title="Task Viewer"></iframe>
-    </main>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+      data.forEach(task => {
+        const btn = document.createElement('button');
+        btn.innerText = task.title;
+        btn.className = "task-btn";
+        btn.onclick = () => {
+          viewer.src = task.file;
+        };
+        nav.appendChild(btn);
+      });
+    });
+</script>
