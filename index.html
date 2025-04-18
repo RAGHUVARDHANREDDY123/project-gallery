@@ -1,18 +1,61 @@
-<script>
-  fetch('data/tasks.json')
-    .then(response => response.json())
-    .then(data => {
-      const nav = document.getElementById('task-list');
-      const viewer = document.getElementById('viewer');
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Project Gallery</title>
+  <style>
+    body { display: flex; flex-direction: row; margin: 0; font-family: Arial, sans-serif; }
+    #task-list { width: 25%; padding: 10px; background: #f4f4f4; height: 100vh; overflow-y: auto; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+    .task-btn { 
+      padding: 10px; 
+      margin-bottom: 5px; 
+      border: none; 
+      background: #e0e0e0; 
+      cursor: pointer; 
+      width: 100%; 
+      text-align: left; 
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .task-btn:hover { background-color: #d1d1d1; }
+    #viewer { width: 75%; height: 100vh; border: none; }
 
-      data.forEach(task => {
-        const btn = document.createElement('button');
-        btn.innerText = task.title;
-        btn.className = "task-btn";
-        btn.onclick = () => {
-          viewer.src = task.file;
-        };
-        nav.appendChild(btn);
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      #task-list, #viewer { width: 100%; height: auto; }
+      #viewer { height: 80vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="task-list">
+    <h3>Project Tasks</h3>
+    <!-- Buttons will be injected here -->
+  </div>
+
+  <iframe id="viewer" src="" title="Task Viewer"></iframe>
+
+  <script>
+    fetch('data/tasks.json')
+      .then(response => response.json())
+      .then(data => {
+        const nav = document.getElementById('task-list');
+        const viewer = document.getElementById('viewer');
+
+        data.forEach(task => {
+          const btn = document.createElement('button');
+          btn.innerText = task.title;
+          btn.className = "task-btn";
+          btn.onclick = () => {
+            viewer.src = task.file;
+          };
+          nav.appendChild(btn);
+        });
+      })
+      .catch(err => {
+        console.error("Error loading tasks.json:", err);
       });
-    });
-</script>
+  </script>
+
+</body>
+</html>
